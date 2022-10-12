@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #PROJECT APPS
-    'courses.apps.CoursesConfig'
+    'courses.apps.CoursesConfig',
     #THIRD PARTY APPS
 
     #DEFAULT APPS
