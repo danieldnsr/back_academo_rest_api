@@ -1,11 +1,14 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
 from ..models import Subject, Course
 from .serializers import SubjectSerializer
 
 class SubjectListView(generics.ListAPIView):
+    permission_classes = (IsAuthenticated,)
+
     queryset = Subject.objects.all()
     serializer_class = SubjectSerializer
 

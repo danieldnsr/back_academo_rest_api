@@ -2,7 +2,8 @@ from rest_framework import serializers
 from ..models import Subject
 from ..models import Course, Classes
 
-class SubjectSerializer(serializers.ModelSerializer):
+class SubjectSerializer(serializers.ModelSerializer): 
+
     class Meta:
         model = Subject
         fields = ['id', 'title']
