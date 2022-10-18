@@ -29,7 +29,7 @@ class Course(models.Model):
     def __str__(self):
         return self.title
     
-class Classes(models.Model):
+class Module(models.Model):
     course = models.ForeignKey(Course, related_name='classes', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
@@ -43,7 +43,7 @@ class Classes(models.Model):
 
 
 class Content(models.Model):
-    module = models.ForeignKey(Classes, related_name='contents', on_delete=models.CASCADE)
+    module = models.ForeignKey(Module, related_name='contents', on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType,on_delete=models.CASCADE, limit_choices_to={'model__in' : ('video')})
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type', 'object_id')
